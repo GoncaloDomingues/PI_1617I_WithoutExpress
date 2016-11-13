@@ -78,13 +78,12 @@
             <img src="{{image}}" alt="{{name}} image">
             <p>Release Date: {{release_date}}</p>
         </div>
-        <div class="col-md-5">
+        <div class="col-md-7">
             <h2>Tracks</h2>
             {{#each tracks}}
                 <h3>Name: {{name}}</h3>
                 <p>Artists: {{#each artists}}<a href="/artists/{{id}}">{{name}} </a>{{/each}}</p>
                 <p>Track Number: {{track_number}}</p>
-                <p>Duration: {{duration}} min</p>
             {{/each}}
         </div>
     </div>
