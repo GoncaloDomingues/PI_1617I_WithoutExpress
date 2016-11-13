@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- <link rel="icon" href="../../favicon.ico"> -->
+
+    <title>Spotify-Web-App</title>
+
+
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel ="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+</head>
+
+<body><nav class="navbar navbar-default" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Brand</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">One more separated link</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Link</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div><!-- /.navbar-collapse -->
+</nav>
+
+
+<div class="container">
+    <h4>Foram obtidos {{total}} resultados</h4>
+    <div class="list-group">
+        {{#each artists}}
+            <div class="media">
+                <div class ="media-left">
+                    <img class="media-object" src={{{image.url}}} alt="...">
+                </div>
+            </div>
+            <div class="media-body">
+                <a href="/artists/{{{id}}}" class="list-group-item">{{name}}</a>
+            </div>
+
+        {{/each}}
+
+
+        <div>
+
+            {{#if first}}
+                <a class = "glyphicon glyphicon-step-backward" href = "/search?artist={{searchName}}"></a>
+            {{/if}}
+            {{#if left}}
+                <a class = "glyphicon glyphicon-chevron-left" href = "/search/{{searchName}}/{{previousPage}}"></a>
+            {{/if}}
+
+            {{#if right}}
+                <a class = "glyphicon glyphicon-chevron-right"  href = "/search/{{searchName}}/{{nextPage}}"></a>
+            {{/if}}
+
+            <a class = "glyphicon glyphicon-step-forward"  href = "/search/{{searchName}}/{{lastPage}}"></a>
+
+        </div>
+
+    </div>
+
+</div> <!-- /container -->
+
+<div id="footer">
+    <div class="container">
+        <p>&copy; 2016/17, G3.</p>
+    </div>
+</div>
+
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="/js/ie10-viewport-bug-workaround.js"></script>
+</body>
+</html>
