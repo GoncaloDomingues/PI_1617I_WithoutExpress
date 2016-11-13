@@ -19,8 +19,8 @@ handlers.home = function(cb){
 
 handlers.search = function(query,cb){
     const name = query.artist;
-
-    service.getSearchName(name,(err,results)=>{
+    const offset = query.offset||0
+    service.getSearchName(name,offset,(err,results)=>{
         if(err)
             return cb(err)
         cb(null,viewResults(results));

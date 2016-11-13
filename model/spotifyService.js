@@ -10,8 +10,8 @@ const ArtistDetail= require("./ArtistDetail.js");
 
 function spotifyService(httpGetAsJson){
 
-   this.getSearchName = function(name,cb){
-       const path = spotifyUri + "/v1/search?query="+name+"&type=artist";
+   this.getSearchName = function(name,offset,cb){
+       const path = spotifyUri + "/v1/search?query="+name+"&type=artist&offset="+offset;
        httpGetAsJson(path,(err,obj)=>{
            if(err)
                return cb(err);

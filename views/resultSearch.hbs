@@ -88,17 +88,17 @@
         <div>
 
             {{#if first}}
-                <a class = "glyphicon glyphicon-step-backward" href = "/search?artist={{searchName}}"></a>
+                <a class = "glyphicon glyphicon-step-backward" href = "/search?artist={{SearchName}}"></a>
             {{/if}}
             {{#if left}}
-                <a class = "glyphicon glyphicon-chevron-left" href = "/search/{{searchName}}/{{previousPage}}"></a>
+                <a class = "glyphicon glyphicon-chevron-left" href = "/search?artist={{SearchName}}&offset={{previousPage}}"></a>
             {{/if}}
 
             {{#if right}}
-                <a class = "glyphicon glyphicon-chevron-right"  href = "/search/{{searchName}}/{{nextPage}}"></a>
+                <a class = "glyphicon glyphicon-chevron-right"  href = "/search?artist={{SearchName}}&offset={{nextPage}}"></a>
             {{/if}}
 
-            <a class = "glyphicon glyphicon-step-forward"  href = "/search/{{searchName}}/{{lastPage}}"></a>
+            <a class = "glyphicon glyphicon-step-forward"  href = /search?artist={{SearchName}}&offset={{lastPage}}"></a>
 
         </div>
 
