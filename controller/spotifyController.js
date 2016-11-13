@@ -9,6 +9,7 @@ const service = new SpotifyService(httpGetAsJson)
 const viewSearch = handlebars.compile(fs.readFileSync('./views/searchView.hbs').toString())
 const viewResults= handlebars.compile(fs.readFileSync('./views/resultSearch.hbs').toString())
 const viewArtists= handlebars.compile(fs.readFileSync('./views/artists.hbs').toString())
+const viewAlbums = handlebars.compile(fs.readFileSync('./views/albums.hbs').toString())
 
 const handlers={}
 
@@ -35,6 +36,16 @@ handlers.artists=function(query,cb){
         if(err)
             return cb(err)
         cb(null,viewArtists(results));
+    })
+}
+
+handlers.albums = function(query, cb){
+    const id = query
+
+    service.getAlbum(id, (err, results) => {
+        if(err)
+            return cb(err)
+        cb(null, viewAlbums(results))
     })
 }
 

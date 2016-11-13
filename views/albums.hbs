@@ -67,24 +67,29 @@
         </ul>
     </div><!-- /.navbar-collapse -->
 </nav>
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-5">
             <h1>{{name}}</h1>
-            <img src="{{image.url}}" alt="{{name}} image">
+            {{#each artists}}
+                <p><a href="/artists/{{id}}">{{name}}</a></p>
+            {{/each}}
+            <img src="{{image}}" alt="{{name}} image">
+            <p>Release Date: {{release_date}}</p>
         </div>
         <div class="col-md-5">
-            <h2>Albums</h2>
-            {{#each albums}}
-                <h3>
-                    <a href="/albums/{{id}}">{{name}}</a>
-                </h3>
-                <p>{{type}}</p>
-                <img src="{{{image}}}" alt="{{name}} image">
+            <h2>Tracks</h2>
+            {{#each tracks}}
+                <h3>Name: {{name}}</h3>
+                <p>Artists: {{#each artists}}<a href="/artists/{{id}}">{{name}} </a>{{/each}}</p>
+                <p>Track Number: {{track_number}}</p>
+                <p>Duration: {{duration}} min</p>
             {{/each}}
         </div>
     </div>
 </div>
+
 <div id="footer">
     <div class="container">
         <p>&copy; 2016/17, G3</p>

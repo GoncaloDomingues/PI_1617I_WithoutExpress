@@ -7,6 +7,7 @@ const fs = require('fs')
 const spotifyUri = "https://api.spotify.com"
 const httpGetAsJson=require("./../httpGetAsJson.js")
 const ArtistDetail= require("./ArtistDetail.js");
+const AlbumDetail = require("./AlbumDetail.js")
 
 function spotifyService(httpGetAsJson){
 
@@ -38,6 +39,16 @@ function spotifyService(httpGetAsJson){
 
        })
    }
+
+    this.getAlbum = function(id, cb){
+        const path = spotifyUri + '/v1/albums/' + id
+
+        httpGetAsJson(path, (err, obj) => {
+            if(err)
+                return cb(err)
+            cb(null, new AlbumDetail(obj))
+        })
+    }
 }
 
 
